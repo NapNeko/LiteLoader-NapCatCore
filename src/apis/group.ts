@@ -1,10 +1,7 @@
-import { GroupMember, GroupRequestOperateTypes, GroupMemberRole, GroupNotify, Group, MemberExtSourceType } from '../entities';
-import { NTEventDispatch } from '../common/EventTask';
-import { NTCoreWrapper } from '../common/session';
-// console.log(process.pid);
-// setTimeout(async () => {
-//   console.log(JSON.stringify(await NTQQGroupApi.getMemberExtInfo(), null, 2));
-// }, 20000);
+import { GroupMember, GroupRequestOperateTypes, GroupMemberRole, GroupNotify, Group, MemberExtSourceType,GeneralCallResult } from '@/entities';
+import { NTEventDispatch } from '@/common/EventTask';
+import { NTCoreWrapper } from '@/common/session';
+
 export class NTQQGroupApi {
   private core: NTCoreWrapper;
   constructor(core: NTCoreWrapper) {

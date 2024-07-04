@@ -1,4 +1,4 @@
-import { GeneralCallResult } from "./common";
+import { GeneralCallResult } from "../entities/common";
 
 export interface NodeIKernelCollectionService {
     addKernelCollectionListener(...args: any[]): unknown;//needs 1 arguments

@@ -1,10 +1,5 @@
-import { GetFileListParam, Peer, RawMessage, SendMessageElement } from '../entities';
-import { sleep } from '@/common/utils/helper';
-import { MsgListener, onGroupFileInfoUpdateParamType } from '../listeners';
-import { GeneralCallResult } from '../services/common';
-import { randomUUID } from 'crypto';
+import { Peer, RawMessage, GeneralCallResult } from '@/entities';
 import { NTCoreWrapper } from '../common/session';
-
 
 
 export class NTQQMsgApi {
@@ -13,42 +8,42 @@ export class NTQQMsgApi {
     this.core = core;
   }
   //  this.core: this.core | null = null;
-//   enum BaseEmojiType {
-//     NORMAL_EMOJI,
-//     SUPER_EMOJI,
-//     RANDOM_SUPER_EMOJI,
-//     CHAIN_SUPER_EMOJI,
-//     EMOJI_EMOJI
-// }
-   async setEmojiLike(peer: Peer, msgSeq: string, emojiId: string, set: boolean = true) {
+  //   enum BaseEmojiType {
+  //     NORMAL_EMOJI,
+  //     SUPER_EMOJI,
+  //     RANDOM_SUPER_EMOJI,
+  //     CHAIN_SUPER_EMOJI,
+  //     EMOJI_EMOJI
+  // }
+  async setEmojiLike(peer: Peer, msgSeq: string, emojiId: string, set: boolean = true) {
     // nt_qq//global//nt_data//Emoji//emoji-resource//sysface_res/apng/ 下可以看到所有QQ表情预览
     // nt_qq\global\nt_data\Emoji\emoji-resource\face_config.json 里面有所有表情的id, 自带表情id是QSid, 标准emoji表情id是QCid
     // 其实以官方文档为准是最好的，https://bot.q.qq.com/wiki/develop/api-v2/openapi/emoji/model.html#EmojiType
     emojiId = emojiId.toString();
     return this.core.session.getMsgService().setMsgEmojiLikes(peer, msgSeq, emojiId, emojiId.length > 3 ? '2' : '1', set);
   }
-   async getMultiMsg(peer: Peer, rootMsgId: string, parentMsgId: string): Promise<GeneralCallResult & {
+  async getMultiMsg(peer: Peer, rootMsgId: string, parentMsgId: string): Promise<GeneralCallResult & {
     msgList: RawMessage[]
   } | undefined> {
     return this.core.session.getMsgService().getMultiMsg(peer, rootMsgId, parentMsgId);
   }
 
-   async getMsgsByMsgId(peer: Peer, msgIds: string[]) {
+  async getMsgsByMsgId(peer: Peer, msgIds: string[]) {
     return await this.core.session.getMsgService().getMsgsByMsgId(peer, msgIds);
   }
-   async getMsgsBySeqAndCount(peer: Peer, seq: string, count: number, desc: boolean, z: boolean) {
+  async getMsgsBySeqAndCount(peer: Peer, seq: string, count: number, desc: boolean, z: boolean) {
     return await this.core.session.getMsgService().getMsgsBySeqAndCount(peer, seq, count, desc, z);
   }
 
-   async activateChat(peer: Peer) {
+  async activateChat(peer: Peer) {
     // await this.fetchRecentContact();
     // await sleep(500);
   }
 
-   async activateChatAndGetHistory(peer: Peer) {
+  async activateChatAndGetHistory(peer: Peer) {
 
   }
-   async setMsgRead(peer: Peer) {
+  async setMsgRead(peer: Peer) {
     return this.core.session.getMsgService().setMsgRead(peer);
   }
   //  async getGroupFileList(GroupCode: string, params: GetFileListParam) {
@@ -67,23 +62,23 @@ export class NTQQMsgApi {
   //     await this.core.session.getRichMediaService().getGroupFileList(GroupCode, params);
   //   });
   // }
-   async getMsgHistory(peer: Peer, msgId: string, count: number) {
+  async getMsgHistory(peer: Peer, msgId: string, count: number) {
     // 消息时间从旧到新
     return this.core.session.getMsgService().getMsgsIncludeSelf(peer, msgId, count, true);
   }
 
-   async fetchRecentContact() {
+  async fetchRecentContact() {
 
   }
 
-   async recallMsg(peer: Peer, msgIds: string[]) {
+  async recallMsg(peer: Peer, msgIds: string[]) {
     await this.core.session.getMsgService().recallMsg({
       chatType: peer.chatType,
       peerUid: peer.peerUid
     }, msgIds);
   }
 
-   async forwardMsg(srcPeer: Peer, destPeer: Peer, msgIds: string[]) {
+  async forwardMsg(srcPeer: Peer, destPeer: Peer, msgIds: string[]) {
     return this.core.session.getMsgService().forwardMsg(msgIds, srcPeer, [destPeer], new Map());
   }
 

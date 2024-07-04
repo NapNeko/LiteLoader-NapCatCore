@@ -10,6 +10,8 @@ export interface BuddyCategoryType {
     buddyList: User[];
 }
 
+export type OnBuddyChangeParams = BuddyCategoryType[]
+
 export interface ModifyProfileParams {
     nick: string,
     longNick: string,

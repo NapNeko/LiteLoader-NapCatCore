@@ -1,4 +1,4 @@
-import { GeneralCallResult } from "./common";
+import { GeneralCallResult } from "../entities/common";
 
 //没扒干净 因为用不着
 export interface NodeIKernelNodeMiscService {

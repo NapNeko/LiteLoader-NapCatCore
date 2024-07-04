@@ -25,9 +25,6 @@
       "paths": {
         "@*": [
           "./src*"
-        ],
-        "@/core": [
-          "./src/core/src/index"
         ]
       }
     },

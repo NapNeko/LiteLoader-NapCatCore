@@ -1,6 +1,6 @@
-import { User } from '../entities';
-import { NTEventDispatch } from '../common/EventTask';
-import { NTCoreWrapper } from '../common/session';
+import { NTEventDispatch } from '@/common/EventTask';
+import { NTCoreWrapper } from '@/common/session';
+import { OnBuddyChangeParams ,User } from '@/entities'
 
 export class NTQQFriendApi {
   private core: NTCoreWrapper;

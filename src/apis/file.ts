@@ -6,7 +6,7 @@ import {
   RawMessage
 } from '../entities';
 import { NTCoreWrapper } from '../common/session';
-import { GeneralCallResult } from '../services/common'
+import { GeneralCallResult } from '../entities/common'
 export class NTQQFileApi {
   private core: NTCoreWrapper;
   constructor(core: NTCoreWrapper) {

@@ -1,5 +1,5 @@
 import { NodeIKernelStorageCleanListener } from "@/core/listeners";
-import { GeneralCallResult } from "./common";
+import { GeneralCallResult } from "../entities/common";
 
 export interface NodeIKernelStorageCleanService {
 

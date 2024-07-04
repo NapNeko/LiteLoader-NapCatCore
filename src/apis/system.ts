@@ -1,9 +1,6 @@
-import { NTEventDispatch } from '../common/EventTask';
-import { NTCoreWrapper } from '../common/session';
-// setTimeout(async () => {
-//     let ret = await NTQQSystemApi.getArkJsonCollection('1-2-162b9b42-65b9-4405-a8ed-2e256ec8aa50');
-//     console.log(ret);
-// }, 20000)
+import { GeneralCallResult } from '@/entities';
+import { NTEventDispatch } from '@/common/EventTask';
+import { NTCoreWrapper } from '@/common/session';
 export class NTQQSystemApi {
     private core: NTCoreWrapper;
     constructor(core: NTCoreWrapper) {
