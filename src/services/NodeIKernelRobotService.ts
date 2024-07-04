@@ -1,4 +1,4 @@
-import { NodeIKernelRobotListener } from "@/core/listeners";
+import { NodeIKernelRobotListener } from "@/listeners";
 
 export interface NodeIKernelRobotService {
     fetchGroupRobotStoreDiscovery(arg: unknown): unknown;

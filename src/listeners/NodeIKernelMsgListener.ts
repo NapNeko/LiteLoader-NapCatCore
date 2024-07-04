@@ -1,4 +1,4 @@
-import { ChatType, RawMessage } from '@/core/entities';
+import { ChatType, RawMessage } from '@/entities';
 
 export interface OnRichMediaDownloadCompleteParams {
   fileModelId: string,

@@ -1,12 +1,12 @@
-import { NodeIKernelGroupListener } from '@/core/listeners/NodeIKernelGroupListener';
+import { NodeIKernelGroupListener } from '@/listeners';
 import {
+  GeneralCallResult,
   GroupExtParam,
   GroupMember,
   GroupMemberRole,
   GroupNotifyTypes,
   GroupRequestOperateTypes,
-} from '@/core/entities';
-import { GeneralCallResult } from '@/core/services/common';
+} from '@/entities';
 
 export interface NodeIKernelGroupService {
 

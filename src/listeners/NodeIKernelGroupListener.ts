@@ -1,4 +1,4 @@
-import { Group, GroupMember, GroupNotify } from '@/core/entities';
+import { Group, GroupMember, GroupNotify } from '@/entities';
 
 interface IGroupListener {
   onGroupListUpdate(updateType: number, groupList: Group[]): void;

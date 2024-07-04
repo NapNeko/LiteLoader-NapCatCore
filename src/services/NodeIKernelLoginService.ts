@@ -1,4 +1,4 @@
-import { NodeIKernelLoginListener } from '@/core/listeners/NodeIKernelLoginListener';
+import { NodeIKernelLoginListener } from '@/listeners';
 
 export interface LoginInitConfig {
   machineId: '';

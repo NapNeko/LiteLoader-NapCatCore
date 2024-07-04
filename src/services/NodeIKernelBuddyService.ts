@@ -1,6 +1,5 @@
-import { Friend } from '@/core/entities';
-import { GeneralCallResult } from '@/core/services/common';
-import { NodeIKernelBuddyListener } from '@/core/listeners';
+import { Friend, GeneralCallResult } from '@/entities';
+import { NodeIKernelBuddyListener } from '@/listeners';
 
 export interface NodeIKernelBuddyService {
   // 以下为自行添加的，wrapper.node中并没有这些方法,目的是简化调用

@@ -1,6 +1,5 @@
-import { ChatType, ElementType, Peer, RawMessage, SendMessageElement } from '@/core/entities';
-import { NodeIKernelMsgListener } from '@/core/listeners/NodeIKernelMsgListener';
-import { GeneralCallResult } from '@/core/services/common';
+import { ChatType, ElementType, GeneralCallResult, Peer, RawMessage, SendMessageElement } from '@/entities';
+import { NodeIKernelMsgListener } from '@/listeners';
 
 export interface NodeIKernelMsgService {
   addKernelMsgListener(nodeIKernelMsgListener: NodeIKernelMsgListener): number;
