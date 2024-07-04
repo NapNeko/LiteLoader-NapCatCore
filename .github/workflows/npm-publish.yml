@@ -9,23 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 20      
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
       - name: Install & Build
         run: |
               npm i
               npm run build:dev
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish ./dist
+      - name: Release Core
+        run: npm publish ./dist
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
