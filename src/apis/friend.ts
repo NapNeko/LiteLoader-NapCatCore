@@ -1,4 +1,3 @@
-import { NTEventDispatch } from '@/common/EventTask';
 import { NTCoreWrapper } from '@/common/session';
 import { OnBuddyChangeParams ,User } from '@/entities'
 
@@ -11,7 +10,7 @@ export class NTQQFriendApi {
     return this.core.session.getBuddyService().isBuddy(uid);
   }
   async getFriends(forced = false): Promise<User[]> {
-    let [_retData, _BuddyArg] = await NTEventDispatch.CallNormalEvent
+    let [_retData, _BuddyArg] = await this.core.event.CallNormalEvent
       <(force: boolean) => Promise<any>, (arg: OnBuddyChangeParams) => void>
       (
         'NodeIKernelBuddyService/getBuddyList',

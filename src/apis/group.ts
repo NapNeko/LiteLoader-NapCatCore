@@ -1,5 +1,5 @@
 import { GroupMember, GroupRequestOperateTypes, GroupMemberRole, GroupNotify, Group, MemberExtSourceType,GeneralCallResult } from '@/entities';
-import { NTEventDispatch } from '@/common/EventTask';
+import { NTEventDispatch } from '@/common/session';
 import { NTCoreWrapper } from '@/common/session';
 
 export class NTQQGroupApi {

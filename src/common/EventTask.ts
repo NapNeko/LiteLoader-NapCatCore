@@ -152,30 +152,3 @@ export class NTEventWrapper {
     });
   }
 }
-export const NTEventDispatch = new NTEventWrapper();
-
-// 示例代码 快速创建事件
-// let NTEvent = new NTEventWrapper();
-// let TestEvent = NTEvent.CreatEventFunction<(force: boolean) => Promise<Number>>('NodeIKernelProfileLikeService/GetTest');
-// if (TestEvent) {
-//     TestEvent(true);
-// }
-
-// 示例代码 快速创建监听Listener类
-// let NTEvent = new NTEventWrapper();
-// NTEvent.CreatListenerFunction<NodeIKernelMsgListener>('NodeIKernelMsgListener', 'core')
-
-
-// 调用接口
-//let NTEvent = new NTEventWrapper();
-//let ret = await NTEvent.CallNormalEvent<(force: boolean) => Promise<Number>, (data1: string, data2: number) => void>('NodeIKernelProfileLikeService/GetTest', 'NodeIKernelMsgListener/onAddSendMsg', 1, 3000, true);
-
-// 注册监听 解除监听
-// NTEventDispatch.RigisterListener('NodeIKernelMsgListener/onAddSendMsg','core',cb);
-// NTEventDispatch.UnRigisterListener('NodeIKernelMsgListener/onAddSendMsg','core');
-
-// let GetTest = NTEventDispatch.CreatEvent('NodeIKernelProfileLikeService/GetTest','NodeIKernelMsgListener/onAddSendMsg',Mode);
-// GetTest('test');
-
-// always模式
-// NTEventDispatch.CreatEvent('NodeIKernelProfileLikeService/GetTest','NodeIKernelMsgListener/onAddSendMsg',Mode,(...args:any[])=>{ console.log(args) });

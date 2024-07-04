@@ -1,5 +1,4 @@
 import { ModifyProfileParams , UserDetailInfoByUin } from '@/entities';
-import { NTEventDispatch } from '@/common/EventTask';
 import { NTCoreWrapper } from '@/common/session';
 export class NTQQUserApi {
   private core: NTCoreWrapper;
@@ -63,7 +62,7 @@ export class NTQQUserApi {
     return robotUinRanges?.response?.robotUinRanges;
   }  //需要异常处理
   async getUidByUin(Uin: string) {
-    let ret = await NTEventDispatch.CallNoListenerEvent
+    let ret = await this.core.event.CallNoListenerEvent
       <(Uin: string[]) => Promise<{ uidInfo: Map<string, string> }>>(
         'NodeIKernelUixConvertService/getUid',
         5000,
@@ -75,7 +74,7 @@ export class NTQQUserApi {
     if (!Uid) {
       return '';
     }
-    let ret = await NTEventDispatch.CallNoListenerEvent
+    let ret = await this.core.event.CallNoListenerEvent
       <(Uin: string[]) => Promise<{ uinInfo: Map<string, string> }>>(
         'NodeIKernelUixConvertService/getUin',
         5000,
@@ -84,7 +83,7 @@ export class NTQQUserApi {
     return ret.uinInfo.get(Uid);
   }
   async getUserDetailInfoByUin(Uin: string) {
-    return NTEventDispatch.CallNoListenerEvent
+    return this.core.event.CallNoListenerEvent
       <(Uin: string) => Promise<UserDetailInfoByUin>>(
         'NodeIKernelProfileService/getUserDetailInfoByUin',
         5000,

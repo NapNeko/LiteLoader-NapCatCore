@@ -1,19 +1,14 @@
 import {
   AtType,
-  ElementType, FaceIndex, FaceType, PicElement,
-  PicType,
+  ElementType, FaceIndex, FaceType,
   SendArkElement,
   SendFaceElement,
   SendFileElement, SendMarkdownElement, SendMarketFaceElement,
   SendPicElement,
-  SendPttElement,
   SendReplyElement,
   SendTextElement,
-  SendVideoElement
 } from './index';
-import { promises as fs } from 'node:fs';
 import faceConfig from './face_config.json';
-import * as pathLib from 'node:path';
 
 export const mFaceCache = new Map<string, string>(); // emojiId -> faceName
 
@@ -97,43 +92,6 @@ export class SendMsgElementConstructor {
     };
 
     return element;
-  }
-
-  static async ptt(pttPath: string): Promise<SendPttElement> {
-    const { converted, path: silkPath, duration } = await encodeSilk(pttPath);
-    // log("生成语音", silkPath, duration);
-    if (!silkPath) {
-      throw '语音转换失败, 请检查语音文件是否正常';
-    }
-    const { md5, fileName, path, fileSize } = await NTQQFileApi.uploadFile(silkPath!, ElementType.PTT);
-    if (fileSize === 0) {
-      throw '文件异常，大小为0';
-    }
-    if (converted) {
-      fs.unlink(silkPath).then();
-    }
-    return {
-      elementType: ElementType.PTT,
-      elementId: '',
-      pttElement: {
-        fileName: fileName,
-        filePath: path,
-        md5HexStr: md5,
-        fileSize: fileSize,
-        // duration: Math.max(1, Math.round(fileSize / 1024 / 3)), // 一秒钟大概是3kb大小, 小于1秒的按1秒算
-        duration: duration || 1,
-        formatType: 1,
-        voiceType: 1,
-        voiceChangeType: 0,
-        canConvert2Text: true,
-        waveAmplitudes: [
-          0, 18, 9, 23, 16, 17, 16, 15, 44, 17, 24, 20, 14, 15, 17,
-        ],
-        fileSubId: '',
-        playState: 1,
-        autoConvertText: 0,
-      }
-    };
   }
 
   static face(faceId: number): SendFaceElement {
@@ -243,27 +201,6 @@ export class SendMsgElementConstructor {
       elementId: '',
       markdownElement: {
         content
-      }
-    };
-  }
-  static async miniapp(): Promise<SendArkElement> {
-    let ret = await SignMiniApp({
-      prompt: "Bot Test",
-      title: "Bot Test",
-      preview: "https://tianquan.gtimg.cn/qqAIAgent/item/7/square.png",
-      jumpUrl: "https://www.bilibili.com/",
-      tag: "Bot Test",
-      tagIcon: "https://tianquan.gtimg.cn/shoal/qqAIAgent/3e9d70c9-d98c-45b8-80b4-79d82971b514.png",
-      source: "Bot Test",
-      sourcelogo: "https://tianquan.gtimg.cn/shoal/qqAIAgent/3e9d70c9-d98c-45b8-80b4-79d82971b514.png"
-    });
-    return {
-      elementType: ElementType.ARK,
-      elementId: '',
-      arkElement: {
-        bytesData: ret,
-        linkInfo: null,
-        subElementType: null
       }
     };
   }
