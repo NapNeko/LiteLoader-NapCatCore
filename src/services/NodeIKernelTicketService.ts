@@ -1,4 +1,4 @@
-import { forceFetchClientKeyRetType } from "../entities/common";
+import { forceFetchClientKeyRetType } from "@/entities/common";
 
 export interface NodeIKernelTicketService {
 

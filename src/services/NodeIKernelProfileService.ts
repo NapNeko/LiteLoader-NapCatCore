@@ -1,7 +1,6 @@
 import { AnyCnameRecord } from 'node:dns';
-import { BizKey, ModifyProfileParams, UserDetailInfoByUin } from '../entities';
-import { NodeIKernelProfileListener } from '../listeners';
-import { GeneralCallResult } from '@/core/services/common';
+import { BizKey, ModifyProfileParams, UserDetailInfoByUin, GeneralCallResult } from '@/entities';
+import { NodeIKernelProfileListener } from '@/listeners';
 
 export interface NodeIKernelProfileService {
 

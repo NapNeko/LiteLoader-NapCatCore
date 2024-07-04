@@ -1,4 +1,4 @@
-import { NTCoreWrapper } from "../common/session";
+import { NTCoreWrapper } from "@/common/session";
 
 export class NTQQCollectionApi {
     private core: NTCoreWrapper;

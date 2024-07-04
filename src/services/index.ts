@@ -1,4 +1,3 @@
-export * from '../entities/common';
 export * from './NodeIKernelAvatarService';
 export * from './NodeIKernelBuddyService';
 export * from './NodeIKernelFileAssistantService';

@@ -1,4 +1,4 @@
-import { BuddyProfileLikeReq } from "../entities/user";
+import { BuddyProfileLikeReq } from "@/entities/user";
 
 export interface NodeIKernelProfileLikeService {
   addKernelProfileLikeListener(listener: NodeIKernelProfileLikeService): void;

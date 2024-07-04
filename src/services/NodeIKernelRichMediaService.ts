@@ -1,5 +1,5 @@
-import { GetFileListParam, Peer } from "../entities";
-import { GeneralCallResult } from "../entities/common";
+
+import { GeneralCallResult, GetFileListParam, Peer } from "@/entities";
 
 export interface NodeIKernelRichMediaService {
     //getVideoPlayUrl(peer, msgId, elemId, videoCodecFormat, VideoRequestWay.KHAND, cb);

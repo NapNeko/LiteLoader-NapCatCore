@@ -1,4 +1,4 @@
-import { Peer } from "../entities";
+import { Peer } from "@/entities";
 
 export interface NodeIKernelRecentContactService {
     setGuildDisplayStatus(...args: unknown[]): unknown; // 2 arguments

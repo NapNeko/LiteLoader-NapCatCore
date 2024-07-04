@@ -1,5 +1,5 @@
 import { Peer, RawMessage, GeneralCallResult } from '@/entities';
-import { NTCoreWrapper } from '../common/session';
+import { NTCoreWrapper } from '@/common/session';
 
 
 export class NTQQMsgApi {

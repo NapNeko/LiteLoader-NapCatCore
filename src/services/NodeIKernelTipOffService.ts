@@ -1,4 +1,4 @@
-import { GeneralCallResult } from "../entities/common";
+import { GeneralCallResult } from "@/entities/common";
 
 export interface NodeIKernelTipOffService {
 
