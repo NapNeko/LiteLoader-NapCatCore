@@ -1,5 +1,4 @@
 import { GroupMember, GroupRequestOperateTypes, GroupMemberRole, GroupNotify, Group, MemberExtSourceType,GeneralCallResult } from '@/entities';
-import { NTEventDispatch } from '@/common/session';
 import { NTCoreWrapper } from '@/common/session';
 
 export class NTQQGroupApi {
@@ -8,7 +7,7 @@ export class NTQQGroupApi {
     this.core = core;
   }
   async getGroups(forced = false) {
-    let [_retData, _updateType, groupList] = await NTEventDispatch.CallNormalEvent
+    let [_retData, _updateType, groupList] = await this.core.event.CallNormalEvent
       <(force: boolean) => Promise<any>, (updateType: number, groupList: Group[]) => void>
       (
         'NodeIKernelGroupService/getGroupList',
@@ -32,7 +31,7 @@ export class NTQQGroupApi {
     return this.core.session.getRichMediaService().deleteGroupFolder(groupCode, folderId);
   }
   async getSingleScreenNotifies(num: number) {
-    let [_retData, _doubt, _seq, notifies] = await NTEventDispatch.CallNormalEvent
+    let [_retData, _doubt, _seq, notifies] = await this.core.event.CallNormalEvent
       <(arg1: boolean, arg2: string, arg3: number) => Promise<any>, (doubt: boolean, seq: string, notifies: GroupNotify[]) => void>
       (
         'NodeIKernelGroupService/getSingleScreenNotifies',
@@ -74,7 +73,7 @@ export class NTQQGroupApi {
   async getGroupIgnoreNotifies() {
   }
   async getArkJsonGroupShare(GroupCode: string) {
-    let ret = await NTEventDispatch.CallNoListenerEvent
+    let ret = await this.core.event.CallNoListenerEvent
       <(GroupId: string) => Promise<GeneralCallResult & { arkJson: string }>>(
         'NodeIKernelGroupService/getGroupRecommendContactArkJson',
         5000,

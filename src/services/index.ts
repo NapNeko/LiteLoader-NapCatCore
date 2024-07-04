@@ -12,4 +12,14 @@ export * from './NodeIKernelStorageCleanService';
 export * from './NodeIKernelRobotService';
 export * from './NodeIKernelRichMediaService';
 export * from './NodeIKernelDbToolsService';
-export * from './NodeIKernelTipOffService'
+export * from './NodeIKernelTipOffService';
+export * from './NodeIKernelStorageCleanService';
+export * from './NodeIKernelRobotService';
+export * from './NodeIKernelCollectionService';
+export * from './NodeIKernelUixConvertService';
+export * from './NodeIKernelNodeMiscService';
+export * from './NodeIKernelMsgBackupService';
+export * from './NodeIKernelAlbumService';
+export * from './NodeIKernelTianShuService';
+export * from './NodeIKernelUnitedConfigService';
+export * from './NodeIKernelSearchService';

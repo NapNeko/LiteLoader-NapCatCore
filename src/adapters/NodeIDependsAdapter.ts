@@ -1,5 +1,3 @@
-import { log } from "@/common/utils/log";
-
 interface IDependsAdapter {
   onMSFStatusChange(arg1: number, arg2: number): void;
 

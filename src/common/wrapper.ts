@@ -1,9 +1,9 @@
-import { WrapperSessionInitConfig } from './sessionConfig';
+import { WrapperSessionInitConfig } from '@/entities/common';
 import {
   NodeIDependsAdapter,
   NodeIDispatcherAdapter,
   NodeIGlobalAdapter,
-} from './adapters';
+} from '@/adapters';
 import {
   NodeIKernelSessionListener,
   NodeIKernelMsgListener,
@@ -11,7 +11,7 @@ import {
   NodeIKernelBuddyListener,
   NodeIKernelGroupListener,
   NodeIKernelProfileListener,
-} from './listeners';
+} from '@/listeners';
 import {
   NodeIKernelLoginService,
   NodeIKernelMsgService,
@@ -23,17 +23,17 @@ import {
   NodeIKernelTipOffService,
   NodeIKernelRichMediaService,
   NodeIKernelAvatarService,
-} from './services';
-import { NodeIKernelStorageCleanService } from './services/NodeIKernelStorageCleanService';
-import { NodeIKernelRobotService } from './services/NodeIKernelRobotService';
-import { NodeIKernelNodeMiscService } from './services/NodeIKernelNodeMiscService';
-import { NodeIKernelUixConvertService } from './services/NodeIKernelUixConvertService';
-import { NodeIKernelMsgBackupService } from './services/NodeIKernelMsgBackupService';
-import { NodeIKernelAlbumService } from './services/NodeIKernelAlbumService';
-import { NodeIKernelTianShuService } from './services/NodeIKernelTianShuService';
-import { NodeIKernelUnitedConfigService } from './services/NodeIKernelUnitedConfigService';
-import { NodeIKernelSearchService } from './services/NodeIKernelSearchService';
-import { NodeIKernelCollectionService } from './services/NodeIKernelCollectionService';
+  NodeIKernelStorageCleanService,
+  NodeIKernelRobotService,
+  NodeIKernelCollectionService,
+  NodeIKernelUixConvertService,
+  NodeIKernelNodeMiscService,
+  NodeIKernelMsgBackupService,
+  NodeIKernelAlbumService,
+  NodeIKernelTianShuService,
+  NodeIKernelUnitedConfigService,
+  NodeIKernelSearchService,
+} from '@/services';
 
 
 export interface NodeQQNTWrapperUtil {
