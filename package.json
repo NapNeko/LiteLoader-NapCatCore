@@ -1,0 +1,25 @@
+{
+    "name": "napcat.core",
+    "private": true,
+    "type": "module",
+    "version": "1.0.0",
+    "scripts": {
+    },
+    "devDependencies": {
+      "@rollup/plugin-node-resolve": "^15.2.3",
+      "@rollup/plugin-typescript": "^11.1.6",
+      "@types/node": "^20.11.30",
+      "@types/uuid": "^10.0.0",
+      "@typescript-eslint/eslint-plugin": "^7.4.0",
+      "@typescript-eslint/parser": "^7.4.0",
+      "eslint": "^8.57.0",
+      "eslint-import-resolver-typescript": "^3.6.1",
+      "eslint-plugin-import": "^2.29.1",
+      "vite": "^5.2.6"
+    },
+    "dependencies": {
+      "fast-xml-parser": "^4.3.6",
+      "uuid": "^10.0.0"
+    }
+  }
+  

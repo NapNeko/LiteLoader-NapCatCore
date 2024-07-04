@@ -5,18 +5,12 @@ import {
   ChatType,
   RawMessage
 } from '../entities';
-import * as fileType from 'file-type';
-import imageSize from 'image-size';
-import { ISizeCalculationResult } from 'image-size/dist/types/interface';
 import { NTCoreWrapper } from '../common/session';
 import { GeneralCallResult } from '../services/common'
 export class NTQQFileApi {
   private core: NTCoreWrapper;
   constructor(core: NTCoreWrapper) {
     this.core = core;
-  }
-  async getFileType(filePath: string) {
-    return fileType.fileTypeFromFile(filePath);
   }
 
   async copyFile(filePath: string, destPath: string) {
@@ -32,18 +26,6 @@ export class NTQQFileApi {
       peerUid: msg.peerUid,
       guildId: '0'
     }, msg.msgId, element.elementId, 0, { downSourceType: 1, triggerType: 1 })).urlResult.domainUrl[0].url;
-  }
-
-  async getImageSize(filePath: string): Promise<ISizeCalculationResult | undefined> {
-    return new Promise((resolve, reject) => {
-      imageSize(filePath, (err, dimensions) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(dimensions);
-        }
-      });
-    });
   }
 }
 
