@@ -5,7 +5,8 @@
   "exports": {
     ".": {
       "import": "./napcat.core.js",
-      "require": "./index.core.cjs"
+      "require": "./index.core.cjs",
+      "types": "./index.d.ts"
     }
   },
   "scripts": {

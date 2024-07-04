@@ -22,6 +22,7 @@ const baseConfig = (mode: string = 'development') => defineConfig({
         },
     },
     build: {
+        sourcemap: true,
         target: 'esnext',
         minify: false,
         lib: {
