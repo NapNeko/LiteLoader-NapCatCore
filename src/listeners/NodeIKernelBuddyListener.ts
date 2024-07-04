@@ -1,7 +1,4 @@
-import { BuddyCategoryType, FriendRequestNotify } from '@/entities';
-
-export type OnBuddyChangeParams = BuddyCategoryType[]
-
+import { BuddyCategoryType, FriendRequestNotify, OnBuddyChangeParams } from '@/entities';
 interface IBuddyListener {
   onBuddyListChange(arg: OnBuddyChangeParams): void,
 
