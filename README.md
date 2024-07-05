@@ -4,7 +4,7 @@
 
 而本库建立在Native提供给Node的接口，直接越过一层封装，效率更高，效果稳定，扩展性更丰富。
 ## 项目优点!
-- [x] Moudle/CommonJS 支持。
+- [x] Module/CommonJS 支持。
 - [x] TypeScript 编写，可读性极高。
 - [x] 接口更稳定，耗时更短。
 - [x] 轻量化依赖。
