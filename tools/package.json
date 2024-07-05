@@ -13,5 +13,5 @@
     "build:dev": "vite build --mode development",
     "build:prod": "vite build --mode production"
   },
-  "types": "./index.d.ts",
+  "types": "./index.d.ts"
 }
