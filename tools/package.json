@@ -1,7 +1,7 @@
 {
   "name": "napcat.core",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "exports": {
     ".": {
       "import": "./napcat.core.js",
@@ -13,17 +13,5 @@
     "build:dev": "vite build --mode development",
     "build:prod": "vite build --mode production"
   },
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/node": "^20.11.30",
-    "@types/uuid": "^10.0.0",
-    "vite": "^5.2.6",
-    "vite-plugin-cp": "^4.0.8",
-    "vite-plugin-dts": "^3.9.1"
-  },
   "types": "./index.d.ts",
-  "dependencies": {
-    "fast-xml-parser": "^4.3.6",
-    "uuid": "^10.0.0"
-  }
 }
