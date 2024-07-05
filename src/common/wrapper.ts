@@ -254,7 +254,7 @@ export interface NodeIQQNTWrapperEngine {
   initWithDeskTopConfig(config: EnginInitDesktopConfig, nodeIGlobalAdapter: NodeIGlobalAdapter): void;
 }
 
-export interface WrapperNodeApi {
+export interface NTWrapperNodeApi {
   [key: string]: any;
 
   NodeIKernelBuddyListener: NodeIKernelBuddyListener;

@@ -1,4 +1,4 @@
-import { NodeIQQNTWrapperSession, NodeQQNTWrapperUtil, WrapperNodeApi } from '@/common/wrapper';
+import type { NodeIQQNTWrapperSession, NodeQQNTWrapperUtil, NTWrapperNodeApi } from '@/common/wrapper';
 import { NTEventWrapper } from '@/common/EventTask';
 import { NTQQUserApi, NTQQCollectionApi, NTQQFileApi, NTQQFileCacheApi, NTQQSystemApi, NTQQFriendApi, NTQQGroupApi, NTQQMsgApi } from '@/apis';
 
@@ -17,7 +17,7 @@ export class NTCoreWrapper {
     public ApiSystem: NTQQSystemApi;
     public ApiUser: NTQQUserApi;
 
-    constructor(QQWrapper: WrapperNodeApi, session: NodeIQQNTWrapperSession) {
+    constructor(QQWrapper: NTWrapperNodeApi, session: NodeIQQNTWrapperSession) {
         this.session = session;
         this.util = new QQWrapper.NodeQQNTWrapperUtil();
         this.event = new NTEventWrapper();
