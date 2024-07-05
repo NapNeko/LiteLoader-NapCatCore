@@ -84,3 +84,8 @@ let ClientUin = NCore.getApiUser().getUinByUid(123456);
 [LiteLoaderQQNT-Euphony](https://github.com/xtaw/LiteLoaderQQNT-Euphony)
 
 还有LLAPI一类的 他们代码大量处于渲染器进程内，执行proxy之类的操作，容易造成渲染器的逻辑卡死，且容易与QQ自身逻辑干扰。（逃
+
+## 还是不会用吗?真是那你没办法
+[代码示例](https://github.com/NapNeko/LiteLoader-NapCatExample)
+
+这部分代码 完成了大部分初始化逻辑 Copy去 然后调用 `NTCore.getApiUser().getUinByUid(123456);` 预封装接口不就行了
