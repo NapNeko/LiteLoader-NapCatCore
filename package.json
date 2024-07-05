@@ -1,7 +1,7 @@
 {
   "name": "napcat.core",
   "type": "module",
-  "version": "1.0.1",
+  "version": "0.0.0",
   "scripts": {
     "build:dev": "vite build --mode development",
     "build:prod": "vite build --mode production"
