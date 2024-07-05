@@ -1,5 +1,5 @@
 import { NTCoreWrapper } from '@/common/session';
-import { OnBuddyChangeParams ,User } from '@/entities'
+import { OnBuddyChangeParams, User } from '@/entities'
 
 export class NTQQFriendApi {
   private core: NTCoreWrapper;
@@ -17,7 +17,7 @@ export class NTQQFriendApi {
         'NodeIKernelBuddyListener/onBuddyListChange',
         1,
         5000,
-        ()=>true,
+        () => true,
         forced
       );
     const friends: User[] = [];
