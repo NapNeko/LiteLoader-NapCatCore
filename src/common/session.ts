@@ -1,6 +1,6 @@
 import type { NodeIQQNTWrapperSession, NodeQQNTWrapperUtil, NTWrapperNodeApi } from '@/common/wrapper';
 import { NTEventWrapper } from '@/common/EventTask';
-import { NTQQUserApi, NTQQCollectionApi, NTQQFileApi, NTQQFileCacheApi, NTQQSystemApi, NTQQFriendApi, NTQQGroupApi, NTQQMsgApi } from '@/apis';
+import { NTQQUserApi, NTQQCollectionApi, NTQQFileApi, NTQQFileCacheApi, NTQQSystemApi, NTQQFriendApi, NTQQGroupApi, NTQQMsgApi, WebApi } from '@/apis';
 
 //注入与管理会话
 export class NTCoreWrapper {
@@ -16,6 +16,7 @@ export class NTCoreWrapper {
     public ApiMsg: NTQQMsgApi;
     public ApiSystem: NTQQSystemApi;
     public ApiUser: NTQQUserApi;
+    public ApiWeb:WebApi;
 
     constructor(QQWrapper: NTWrapperNodeApi, session: NodeIQQNTWrapperSession) {
         this.session = session;
@@ -34,6 +35,7 @@ export class NTCoreWrapper {
         this.ApiMsg = new NTQQMsgApi(this);
         this.ApiSystem = new NTQQSystemApi(this);
         this.ApiUser = new NTQQUserApi(this);
+        this.ApiWeb = new WebApi();
     }
     // 基础函数
     getWrapperSession() {
@@ -66,5 +68,8 @@ export class NTCoreWrapper {
     }
     getApiUser() {
         return this.ApiUser;
+    }
+    getApiWeb() {
+        return this.ApiWeb;
     }
 }
