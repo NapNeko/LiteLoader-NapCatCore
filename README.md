@@ -77,3 +77,10 @@ let ClientUin = NCore.getApiUser().getUinByUid(123456);
 ## 开发须知
 1. Core内部一般不进行异常捕捉，请在确保外部调用带有异常处理。
 2. Core内部不进行任何日志输出，请确保外部调用带有日志输出。
+
+## 不正式碎碎念
+其实Readme的 这是什么? 里面提到的IPC类的插件常见的就有
+
+[LiteLoaderQQNT-Euphony](https://github.com/xtaw/LiteLoaderQQNT-Euphony)
+
+还有LLAPI一类的 他们代码大量处于渲染器进程内，执行proxy之类的操作，容易造成渲染器的逻辑卡死，且容易与QQ自身逻辑干扰。（逃
