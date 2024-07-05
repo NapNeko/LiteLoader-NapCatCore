@@ -55,7 +55,54 @@ export interface MiniAppLuaJsonType {
   source: string,
   sourcelogo: string,
 }
-
+export async function SignMusicInternal(songname: string, singer: string, cover: string, songmid: string, songmusic: string) {
+  //curl -X POST 'https://mqq.reader.qq.com/api/mqq/share/card?accessToken&_csrfToken&source=c0003' -H 'Content-Type: application/json' -H 'Cookie: uin=o10086' -d '{"app":"com.tencent.qqreader.share","config":{"ctime":1718634110,"forward":1,"token":"9a63343c32d5a16bcde653eb97faa25d","type":"normal"},"extra":{"app_type":1,"appid":100497308,"msg_seq":14386738075403815000.0,"uin":1733139081},"meta":{"music":{"action":"","android_pkg_name":"","app_type":1,"appid":100497308,"ctime":1718634110,"desc":"周杰伦","jumpUrl":"https://i.y.qq.com/v8/playsong.html?songmid=0039MnYb0qxYhV&type=0","musicUrl":"http://ws.stream.qqmusic.qq.com/http://isure6.stream.qqmusic.qq.com/M800002202B43Cq4V4.mp3?fromtag=810033622&guid=br_xzg&trace=23fe7bcbe2336bbf&uin=553&vkey=CF0F5CE8B0FA16F3001F8A88D877A217EB5E4F00BDCEF1021EB6C48969CA33C6303987AEECE9CC840122DD2F917A59D6130D8A8CA4577C87","preview":"https://y.qq.com/music/photo_new/T002R800x800M000000MkMni19ClKG.jpg","cover":"https://y.qq.com/music/photo_new/T002R800x800M000000MkMni19ClKG.jpg","sourceMsgId":"0","source_icon":"https://p.qpic.cn/qqconnect/0/app_100497308_1626060999/100?max-age=2592000&t=0","source_url":"","tag":"QQ音乐","title":"晴天","uin":10086}},"prompt":"[分享]晴天","ver":"0.0.0.1","view":"music"}'
+  let signurl = 'https://mqq.reader.qq.com/api/mqq/share/card?accessToken&_csrfToken&source=c0003';
+  //let  = "https://y.qq.com/music/photo_new/T002R800x800M000000MkMni19ClKG.jpg";
+  let signCard = {
+    app: "com.tencent.qqreader.share",
+    config: {
+      ctime: 1718634110,
+      forward: 1,
+      token: "9a63343c32d5a16bcde653eb97faa25d",
+      type: "normal"
+    },
+    extra: {
+      app_type: 1,
+      appid: 100497308,
+      msg_seq: 14386738075403815000.0,
+      uin: 1733139081
+    },
+    meta: {
+      music:
+      {
+        action: "",
+        android_pkg_name: "",
+        app_type: 1,
+        appid: 100497308,
+        ctime: 1718634110,
+        desc: singer,
+        jumpUrl: "https://i.y.qq.com/v8/playsong.html?songmid=" + songmid + "&type=0",
+        musicUrl: songmusic,
+        preview: cover,
+        cover: cover,
+        sourceMsgId: "0",
+        source_icon: "https://p.qpic.cn/qqconnect/0/app_100497308_1626060999/100?max-age=2592000&t=0",
+        source_url: "",
+        tag: "QQ音乐",
+        title: songname,
+        uin: 10086
+      }
+    },
+    prompt: "[分享]" + songname,
+    ver: "0.0.0.1",
+    view: "music"
+  }
+  //console.log(JSON.stringify(signCard, null, 2));
+  let data = await RequestUtil.HttpGetJson<{ code: number, data: { arkResult: string } }>
+    (signurl, 'POST', signCard, { 'Cookie': 'uin=o10086', 'Content-Type': 'application/json' });
+  return data;
+}
 //注意处理错误
 export async function CreateMusicThridWay0(id: string = '', mid: string = '') {
   if (mid == '') {
@@ -74,6 +121,11 @@ export async function CreateMusicThridWay0(id: string = '', mid: string = '') {
     ('https://api.leafone.cn/api/qqmusic?id=' + mid + '&type=8', 'GET', undefined);
   //console.log(MusicReal);
   return { ...MusicReal.data, mid: mid };
+}
+export async function SignMusicWrapper(id: string = '') {
+  let MusicInfo = await CreateMusicThridWay0(id)!;
+  let MusicCard = await SignMusicInternal(MusicInfo.name!, MusicInfo.singer!, MusicInfo.cover!, MusicInfo.mid!, "https://ws.stream.qqmusic.qq.com/" + MusicInfo.url!);
+  return MusicCard;
 }
 export async function CreateMusicThridWay1(id: string = '', mid: string = '') {
 

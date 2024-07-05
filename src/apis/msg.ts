@@ -1,4 +1,4 @@
-import { Peer, RawMessage, GeneralCallResult } from '@/entities';
+import { Peer, RawMessage, GeneralCallResult, SendMessageElement } from '@/entities';
 import { NTCoreWrapper } from '@/common/session';
 
 
@@ -42,6 +42,10 @@ export class NTQQMsgApi {
 
   async activateChatAndGetHistory(peer: Peer) {
 
+  }
+  async sendMsgExtend(peer: Peer, msg: SendMessageElement[]) {
+    let MsgId = this.core.session.getMsgService().getMsgUniqueId(Date.now().toString());
+    return this.core.session.getMsgService().sendMsg(MsgId, peer, msg, new Map());
   }
   async setMsgRead(peer: Peer) {
     return this.core.session.getMsgService().setMsgRead(peer);
