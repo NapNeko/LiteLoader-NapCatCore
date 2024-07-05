@@ -1,6 +1,6 @@
 import { User } from '@/entities';
 
-interface IProfileListener {
+export interface IProfileListener {
   onProfileSimpleChanged(...args: unknown[]): void;
 
   onProfileDetailInfoChanged(profile: User): void;

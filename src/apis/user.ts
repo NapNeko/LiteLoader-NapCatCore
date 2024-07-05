@@ -1,5 +1,7 @@
-import { ModifyProfileParams , UserDetailInfoByUin } from '@/entities';
+import { ModifyProfileParams, User, UserDetailInfoByUin } from '@/entities';
 import { NTCoreWrapper } from '@/common/session';
+import { IProfileListener, NodeIKernelProfileListener } from '@/listeners';
+import { NodeIKernelProfileService } from '@/services';
 export class NTQQUserApi {
   private core: NTCoreWrapper;
   constructor(core: NTCoreWrapper) {
@@ -81,6 +83,20 @@ export class NTQQUserApi {
         [Uid]
       );
     return ret.uinInfo.get(Uid);
+  }
+  async getUserDetailInfo(uid: string): Promise<User> {
+    let [_, UserData] = await this.core.event.CallNormalEvent
+      <NodeIKernelProfileService['getUserDetailInfo'], NodeIKernelProfileListener['onProfileDetailInfoChanged']>(
+        'NodeIKernelProfileService/getUserDetailInfo',
+        'NodeIKernelProfileListener/onProfileDetailInfoChanged',
+        2,
+        5000,
+        (UserData) => {
+          return UserData.uid === uid;
+        },
+        uid
+      );
+    return UserData;
   }
   async getUserDetailInfoByUin(Uin: string) {
     return this.core.event.CallNoListenerEvent

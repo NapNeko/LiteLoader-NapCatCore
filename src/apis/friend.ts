@@ -17,6 +17,7 @@ export class NTQQFriendApi {
         'NodeIKernelBuddyListener/onBuddyListChange',
         1,
         5000,
+        ()=>true,
         forced
       );
     const friends: User[] = [];

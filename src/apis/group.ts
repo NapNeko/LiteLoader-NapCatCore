@@ -14,6 +14,7 @@ export class NTQQGroupApi {
         'NodeIKernelGroupListener/onGroupListUpdate',
         1,
         5000,
+        ()=>true,
         forced
       );
     return groupList;
@@ -38,6 +39,7 @@ export class NTQQGroupApi {
         'NodeIKernelGroupListener/onGroupSingleScreenNotifies',
         1,
         5000,
+        ()=>true,
         false,
         '',
         num
