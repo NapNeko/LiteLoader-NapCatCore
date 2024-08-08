@@ -483,6 +483,81 @@ export interface TipGroupElement {
   }
 }
 
+export interface WalletElement {
+  sendUin: string
+  sender: {
+    background: number
+    icon: number
+    title: string
+    subTitle: string
+    content: string
+    linkUrl: string
+    blackStripe: string
+    notice: string
+    titleColor: number
+    subtitleColor: number
+    actionsPriority: string
+    jumpUrl: string
+    nativeIOS: string
+    nativeAndroid: string
+    iconUrl: string
+    contentColor: number
+    contentBgcolor: number
+    aioImageLeft: string
+    aioImageRight: string
+    cftImage: string
+    pbReserve: string
+  }
+  receiver: {
+    background: number
+    icon: number
+    title: string
+    subTitle: string
+    content: string
+    linkUrl: string
+    blackStripe: string
+    notice: string
+    titleColor: number
+    subtitleColor: number
+    actionsPriority: string
+    jumpUrl: string
+    nativeIOS: string
+    nativeAndroid: string
+    iconUrl: string
+    contentColor: number
+    contentBgcolor: number
+    aioImageLeft: string
+    aioImageRight: string
+    cftImage: string
+    pbReserve: string
+  }
+  channelId: number
+  templateId: number
+  resend: number
+  msgPriority: number
+  redType: number
+  billNo: string
+  authkey: string
+  sessiontype: number
+  /**
+   * 2: 普通红包
+   * 3: 拼手气红包
+   * 6: 口令红包
+   */
+  msgType: number
+  envelopeId: number
+  name: string
+  confType: number
+  msgFrom: number
+  pcBody: string
+  stringIndex: string
+  redChannel: number
+  grapUin: any[]
+  pbReserve: string
+  grabState: number
+  grabbedAmount: string 
+}
+
 export interface MultiForwardMsgElement {
   xmlContent: string;  // xml格式的消息内容
   resId: string;
@@ -536,5 +611,6 @@ export interface RawMessage {
     inlineKeyboardElement: InlineKeyboardElement;
     markdownElement: MarkdownElement;
     multiForwardMsgElement: MultiForwardMsgElement;
+    walletElement:WalletElement
   }[];
 }

@@ -90,6 +90,11 @@ let ClientUin = NCore.getApiUser().getUinByUid(123456);
 
 这部分代码 完成了大部分初始化逻辑 Copy去 然后调用 `NTCore.getApiUser().getUinByUid(123456);` 预封装接口不就行了
 
+## 什么?你嫌上面的测试代码过于简略？
+你是想被我用脚踩在脸上吗?
+我很善良，所以会满足你
+[插件模板](https://github.com/nyaruhodoo/LiteLoader-NapCatCore-Template)
+
 ## 最后的最后
 如果LL平台你不想用，当然可以完全基于本库独立进行运行，并且可以完成轻占用，脱离框架独立启动，各种操作，具有面向NT本体 而非框架的特性，所以说解耦即为方便。
 如果你连本项目都不想整个依赖进去，那么基于本库开发，需要遵守NapCatQQ主库开源协议规范，进行合理CV。（不遵守规范任意CV者 别让我逮住）

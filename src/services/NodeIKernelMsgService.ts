@@ -4,7 +4,7 @@ import { NodeIKernelMsgListener } from '@/listeners';
 export interface NodeIKernelMsgService {
   addKernelMsgListener(nodeIKernelMsgListener: NodeIKernelMsgListener): number;
 
-  sendMsg(msgId: string, peer: Peer, msgElements: SendMessageElement[], map: Map<any, any>): Promise<unknown>;
+  sendMsg(msgId: string, peer: Peer, msgElements: SendMessageElement[], map: Map<any, any>): Promise<GeneralCallResult>;
 
   recallMsg(peer: Peer, msgIds: string[]): Promise<GeneralCallResult>;
 
@@ -600,7 +600,30 @@ export interface NodeIKernelMsgService {
 
   packRedBag(...args: unknown[]): unknown;
 
-  grabRedBag(...args: unknown[]): unknown;
+  grabRedBag(params:{
+    // 自己的uin 或 群号
+    recvUin: string
+    // 自己的uid 或 群号
+    peerUid: string
+    // 自己的nickname
+    name: string
+    // 其他字段从红包消息里取
+    recvType: ChatType
+    pcBody: string,
+    msgSeq: string
+    index: string
+    wishing: string
+  }): Promise<GeneralCallResult&{
+    grabRedBagRsp: {
+    result: number
+    recvdOrder: {
+      recvUin: string
+      recvName: string
+      amount: string
+      createTime: number
+      uid: null
+    }
+  }}>;
 
   pullDetail(...args: unknown[]): unknown;
 
