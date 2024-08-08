@@ -1,5 +1,6 @@
 import { Peer, RawMessage, GeneralCallResult, SendMessageElement } from '@/entities';
 import { NTCoreWrapper } from '@/common/session';
+import { NodeIKernelMsgService } from '@/services';
 
 
 export class NTQQMsgApi {
@@ -84,6 +85,10 @@ export class NTQQMsgApi {
 
   async forwardMsg(srcPeer: Peer, destPeer: Peer, msgIds: string[]) {
     return this.core.session.getMsgService().forwardMsg(msgIds, srcPeer, [destPeer], new Map());
+  }
+
+  async grabRedBag(params: Parameters<NodeIKernelMsgService['grabRedBag']>[0]){
+    return this.core.session.getMsgService().grabRedBag(params)
   }
 
   //  async multiForwardMsg(srcPeer: Peer, destPeer: Peer, msgIds: string[]): Promise<RawMessage> {
