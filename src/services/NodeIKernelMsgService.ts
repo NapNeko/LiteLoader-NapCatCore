@@ -4,7 +4,7 @@ import { NodeIKernelMsgListener } from '@/listeners';
 export interface NodeIKernelMsgService {
   addKernelMsgListener(nodeIKernelMsgListener: NodeIKernelMsgListener): number;
 
-  sendMsg(msgId: string, peer: Peer, msgElements: SendMessageElement[], map: Map<any, any>): Promise<unknown>;
+  sendMsg(msgId: string, peer: Peer, msgElements: SendMessageElement[], map: Map<any, any>): Promise<GeneralCallResult>;
 
   recallMsg(peer: Peer, msgIds: string[]): Promise<GeneralCallResult>;
 
