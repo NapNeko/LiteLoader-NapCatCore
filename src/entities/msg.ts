@@ -30,6 +30,7 @@ export enum ElementType {
   VIDEO = 5,
   FACE = 6,
   REPLY = 7,
+  WALLET = 9,
   ARK = 10,
   MFACE = 11,
   MARKDOWN = 14
@@ -593,24 +594,24 @@ export interface RawMessage {
       sourceMsgIsIncPic: boolean; // 原消息是否有图片
       sourceMsgText: string;
       replayMsgSeq: string; // 源消息的msgSeq，可以通过这个找到源消息的msgId
-    };
+    } | null;
     textElement: {
       atType: AtType;
       atUid: string; // QQ号
       content: string;
       atNtUid: string; // uid号
-    };
-    picElement: PicElement;
-    pttElement: PttElement;
-    arkElement: ArkElement;
-    grayTipElement: GrayTipElement;
-    faceElement: FaceElement;
-    videoElement: VideoElement;
-    fileElement: FileElement;
-    marketFaceElement: MarketFaceElement;
-    inlineKeyboardElement: InlineKeyboardElement;
-    markdownElement: MarkdownElement;
-    multiForwardMsgElement: MultiForwardMsgElement;
-    walletElement:WalletElement
+    } | null;
+    picElement: PicElement | null;
+    pttElement: PttElement | null;
+    arkElement: ArkElement | null;
+    grayTipElement: GrayTipElement | null;
+    faceElement: FaceElement | null;
+    videoElement: VideoElement | null;
+    fileElement: FileElement | null;
+    marketFaceElement: MarketFaceElement | null;
+    inlineKeyboardElement: InlineKeyboardElement | null;
+    markdownElement: MarkdownElement | null;
+    multiForwardMsgElement: MultiForwardMsgElement | null;
+    walletElement: WalletElement | null
   }[];
 }
